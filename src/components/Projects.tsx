@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import AnimatedUpworkButton from './AnimatedUpworkButton';
 
 const ProjectCard = ({ project, index }: { project: any, index: number }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start']
   });
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
@@ -20,11 +20,11 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
       style={{ opacity }}
       className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center relative"
     >
-      <motion.div 
+      <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-100px' }}
         variants={{
           hidden: { opacity: 0 },
           visible: {
@@ -34,31 +34,48 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
         }}
         className={`lg:col-span-5 order-2 ${index % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}
       >
-        <motion.div variants={{ hidden: { opacity: 0, x: -30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: -30 },
+            visible: {
+              opacity: 1,
+              x: 0,
+              transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+            }
+          }}
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-6 text-xs font-semibold tracking-wide text-zinc-600 uppercase bg-zinc-100 rounded-full border border-zinc-200/60">
             {project.type}
           </div>
-          <h3 className="text-3xl lg:text-4xl font-display font-bold mb-6 text-zinc-950">{project.title}</h3>
+          <h3 className="text-3xl lg:text-4xl font-display font-bold mb-6 text-zinc-950">
+            {project.title}
+          </h3>
           <p className="text-lg text-zinc-600 mb-8 leading-relaxed font-light">
             {project.description}
           </p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
           }}
           className="mb-8"
         >
-          <h4 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest mb-4">Our Contribution</h4>
+          <h4 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest mb-4">
+            Our Contribution
+          </h4>
           <ul className="grid grid-cols-1 gap-3">
             {project.contributions.map((item: string, i: number) => (
-              <motion.li 
-                key={i} 
+              <motion.li
+                key={i}
                 variants={{
                   hidden: { opacity: 0, x: -10 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+                  }
                 }}
                 className="flex items-start gap-3 text-zinc-600 text-sm font-light"
               >
@@ -69,21 +86,27 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
           </ul>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
           }}
           className="mb-10"
         >
-          <h4 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest mb-4">Built With</h4>
+          <h4 className="text-sm font-semibold text-zinc-950 uppercase tracking-widest mb-4">
+            Built With
+          </h4>
           <div className="flex flex-wrap gap-2">
             {project.tools.map((tool: string) => (
-              <motion.span 
-                key={tool} 
+              <motion.span
+                key={tool}
                 variants={{
                   hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+                  }
                 }}
                 className="px-3 py-1.5 bg-white border border-zinc-200 rounded-md text-xs font-medium text-zinc-600 shadow-sm"
               >
@@ -94,7 +117,7 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
         </motion.div>
 
         <div className="flex flex-wrap gap-4">
-          <motion.a 
+          <motion.a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -108,13 +131,13 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
         </div>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         style={{ y, scale, rotateX, perspective: 1000 }}
         className={`lg:col-span-7 order-1 ${index % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}
       >
         <div className="relative rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(82,153,44,0.15)] hover:-translate-y-2 transition-all duration-700 border border-zinc-100 bg-zinc-50 flex items-center justify-center group">
-          <video 
-            src={project.video} 
+          <video
+            src={project.video}
             autoPlay
             loop
             muted
@@ -131,68 +154,78 @@ const ProjectCard = ({ project, index }: { project: any, index: number }) => {
 export default function Projects() {
   const projects = [
     {
-      title: "Rooming House Expert",
-      type: "Real Estate Business Website",
-      description: "A professional platform created for a property-focused business to present services, projects, and business information in a trustworthy way.",
+      title: 'Rooming House Expert',
+      type: 'Real Estate Business Website',
+      description:
+        'A professional platform created for a property-focused business to present services, projects, and business information in a trustworthy way.',
       contributions: [
-        "Website structure and page setup",
-        "Layout and content organization",
-        "Business-focused presentation",
-        "Chatbot setup for the website",
-        "Newsletter signup form to ActiveCampaign",
-        "Live website delivery"
+        'Website structure and page setup',
+        'Layout and content organization',
+        'Business-focused presentation',
+        'Chatbot setup for the website',
+        'Newsletter signup form to ActiveCampaign',
+        'Live website delivery'
       ],
-      tools: ["GitHub", "Antigravity", "VS Code", "Wordpress", "ActiveCampaign"],
-      video: "/RHEV.mp4",
-      link: "https://roominghouse.expert"
+      tools: ['GitHub', 'Antigravity', 'VS Code', 'Wordpress', 'ActiveCampaign'],
+      video: `${import.meta.env.BASE_URL}RHEV.mp4`,
+      link: 'https://roominghouse.expert'
     },
     {
-      title: "HydRate MedBar",
-      type: "Spa & Wellness Salon Website",
-      description: "A wellness and med spa website designed to showcase services, build trust, and drive conversions for a service-based business.",
+      title: 'HydRate MedBar',
+      type: 'Spa & Wellness Salon Website',
+      description:
+        'A wellness and med spa website designed to showcase services, build trust, and drive conversions for a service-based business.',
       contributions: [
-        "Website layout",
-        "Service presentation",
-        "Visual structure",
-        "Conversion-focused business website setup",
-        "Launch support"
+        'Website layout',
+        'Service presentation',
+        'Visual structure',
+        'Conversion-focused business website setup',
+        'Launch support'
       ],
-      tools: ["Antigravity", "GitHub", "Wordpress", "VS Code"],
-      video: "/HRMV.mp4",
-      link: "https://hydratemedbar.com"
+      tools: ['Antigravity', 'GitHub', 'Wordpress', 'VS Code'],
+      video: `${import.meta.env.BASE_URL}HRMV.mp4`,
+      link: 'https://hydratemedbar.com'
     },
     {
-      title: "Sabbath Spa",
-      type: "Spa Website with Booking",
-      description: "A comprehensive spa website featuring an integrated online booking system to help users browse services and schedule appointments seamlessly.",
+      title: 'Sabbath Spa',
+      type: 'Spa Website with Booking',
+      description:
+        'A comprehensive spa website featuring an integrated online booking system to help users browse services and schedule appointments seamlessly.',
       contributions: [
-        "Website structure",
-        "Service page presentation",
-        "Booking system setup",
-        "User flow from service browsing to booking"
+        'Website structure',
+        'Service page presentation',
+        'Booking system setup',
+        'User flow from service browsing to booking'
       ],
-      tools: ["Antigravity", "GitHub", "VS Code", "Booking System Integration", "Wordpress"],
-      video: "/SSWV.mp4",
-      link: "https://sabbathspa.com"
+      tools: ['Antigravity', 'GitHub', 'VS Code', 'Booking System Integration', 'Wordpress'],
+      video: `${import.meta.env.BASE_URL}SSW.mp4`,
+      link: 'https://sabbathspa.com'
     }
   ];
 
   return (
     <section id="work" className="py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={{
             hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+            }
           }}
           className="mb-20 max-w-3xl"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 text-zinc-950 tracking-tight">Featured Work</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 text-zinc-950 tracking-tight">
+            Featured Work
+          </h2>
           <p className="text-lg text-zinc-600 font-light leading-relaxed">
-            Real business websites built to drive outcomes, combining clean structure with practical integrations. Developed using Antigravity and refined with VS Code.
+            Real business websites built to drive outcomes, combining clean structure with practical
+            integrations. Developed using Antigravity and refined with VS Code.
           </p>
         </motion.div>
 
