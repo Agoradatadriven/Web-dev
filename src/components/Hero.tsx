@@ -1,3 +1,8 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll } from 'motion/react';
 import { ArrowRight, Mail } from 'lucide-react';
@@ -234,7 +239,7 @@ export default function Hero() {
               className="w-full max-w-md flex justify-center items-start pt-4 relative z-10"
             >
               <img 
-                src="/BG-LOGO.png" 
+                src={`${import.meta.env.BASE_URL}BG-LOGO.png`}
                 alt="Agora Data Driven Logo" 
                 className="w-full max-w-[400px] h-auto object-contain mix-blend-darken drop-shadow-2xl"
               />
