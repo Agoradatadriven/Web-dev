@@ -94,7 +94,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[#FAFAFA]">
-      {/* Premium Floating Background Elements */}
       <motion.div 
         style={{ y: bgY1 }}
         className="absolute top-20 -left-64 w-96 h-96 bg-[#52992C]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"
@@ -113,7 +112,6 @@ export default function Hero() {
         className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-start pt-12">
-          {/* Left Column */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -208,7 +206,6 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Image & Code Animation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -216,7 +213,6 @@ export default function Hero() {
             style={{ y: y1 }}
             className="hidden lg:flex justify-center items-center relative min-h-[500px]"
           >
-            {/* Coding Animation Background */}
             <div className="absolute inset-0 overflow-hidden flex items-center justify-center pointer-events-none z-0 mask-image-radial opacity-80">
               <CodeSnippet text="const app = express();" delay={0} yOffset={100} xOffset={5} duration={8} />
               <CodeSnippet text="function build() { return true; }" delay={2} yOffset={150} xOffset={60} duration={12} />
