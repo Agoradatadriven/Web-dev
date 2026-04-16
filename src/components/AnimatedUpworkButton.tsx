@@ -1,5 +1,3 @@
-import { useRef, useEffect, CSSProperties } from 'react';
-
 const UpworkIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
     <path d="M17.48 10.16c-2.2 0-3.32 1.37-3.95 2.68l-1.8-3.86H8.97v6.23c0 1.6-1.28 2.9-2.88 2.9s-2.88-1.3-2.88-2.9v-6.23H.48v6.23c0 3.1 2.5 5.6 5.6 5.6s5.6-2.5 5.6-5.6v-2.26l1.4 3.02 2.2-1.04-1.08-2.32c1.04 1.17 2.45 1.88 4.08 1.88 3.04 0 5.52-2.48 5.52-5.52s-2.48-5.52-5.52-5.52zm0 8.52c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/>
@@ -7,26 +5,6 @@ const UpworkIcon = ({ size = 16, className = "" }: { size?: number, className?: 
 );
 
 export default function AnimatedUpworkButton({ size = "normal" }: { size?: "normal" | "large" }) {
-  const btnRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const el = btnRef.current;
-    if (!el) return;
-
-    const updatePath = () => {
-      el.style.setProperty(
-        "--path",
-        `path('M 0 0 H ${el.offsetWidth} V ${el.offsetHeight} H 0 V 0')`
-      );
-    };
-
-    updatePath();
-    const observer = new ResizeObserver(updatePath);
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
-
   const isLarge = size === "large";
   const hClass = isLarge ? "h-14" : "h-12";
   const psClass = isLarge ? "ps-8" : "ps-6";
@@ -43,28 +21,14 @@ export default function AnimatedUpworkButton({ size = "normal" }: { size?: "norm
       href="https://www.upwork.com/agencies/1818954484693860352/"
       target="_blank"
       rel="noopener noreferrer"
-      ref={btnRef}
-      style={{
-        "--duration": 3,
-        "--light-width": "100px",
-        "--light-color": "#52992C",
-        "--border-width": "1.5px",
-        isolation: "isolate",
-      } as CSSProperties}
       className={`relative inline-flex items-center text-sm font-medium rounded-full ${hClass} p-1 ${psClass} ${peClass} group transition-all duration-500 ${hoverPsClass} ${hoverPeClass} w-fit overflow-hidden cursor-pointer shadow-sm hover:shadow-md bg-zinc-200`}
     >
-      {/* Glowing border animation */}
-      <div
-        className="absolute aspect-square inset-0 animate-star-btn bg-[radial-gradient(ellipse_at_center,var(--light-color),transparent,transparent)] z-0"
-        style={{
-          offsetPath: "var(--path)",
-          offsetDistance: "0%",
-          width: "var(--light-width)",
-        } as CSSProperties}
-      />
+      {/* Spinning light animation */}
+      <div className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,#52992C_50%,transparent_100%)] opacity-70" />
+      
       {/* Inner background to mask center */}
       <div
-        className="absolute inset-[var(--border-width)] rounded-[inherit] bg-white z-[1] transition-colors duration-500 group-hover:bg-zinc-50"
+        className="absolute inset-[1.5px] rounded-[inherit] bg-white z-[1] transition-colors duration-500 group-hover:bg-zinc-50"
         aria-hidden="true"
       />
 
