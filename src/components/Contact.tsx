@@ -1,12 +1,23 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { Mail, Linkedin, Github } from 'lucide-react';
 import AnimatedUpworkButton from './AnimatedUpworkButton';
 
 export default function Contact() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
   return (
-    <section id="contact" className="py-32 bg-[#FAFAFA] relative overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+    <section id="contact" ref={ref} className="py-32 bg-[#FAFAFA] relative overflow-hidden">
+      {/* Subtle Background Pattern with Parallax */}
+      <motion.div 
+        className="absolute inset-0 opacity-[0.03] pointer-events-none h-[150%]" 
+        style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '32px 32px', y }}
+      />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="bg-white rounded-[3rem] p-8 md:p-16 lg:p-24 text-center border border-zinc-200/60 shadow-2xl shadow-zinc-900/10 relative overflow-hidden">
@@ -16,7 +27,7 @@ export default function Contact() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             variants={{
               hidden: { opacity: 0 },
               visible: {
