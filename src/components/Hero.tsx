@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll } from 'motion/react';
 import { ArrowRight, Mail } from 'lucide-react';
@@ -94,6 +89,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-[#FAFAFA]">
+      {/* Premium Floating Background Elements */}
       <motion.div 
         style={{ y: bgY1 }}
         className="absolute top-20 -left-64 w-96 h-96 bg-[#52992C]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"
@@ -112,6 +108,7 @@ export default function Hero() {
         className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full"
       >
         <div className="grid lg:grid-cols-2 gap-12 items-start pt-12">
+          {/* Left Column */}
           <motion.div
             initial="hidden"
             animate="visible"
@@ -206,14 +203,16 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
+          {/* Right Column - Image & Code Animation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             style={{ y: y1 }}
-            className="hidden lg:flex justify-center items-center relative min-h-[500px]"
+            className="hidden lg:flex justify-center items-center relative min-h-[600px] w-full"
           >
-            <div className="absolute inset-0 overflow-hidden flex items-center justify-center pointer-events-none z-0 mask-image-radial opacity-80">
+            {/* Coding Animation Background - Expanded */}
+            <div className="absolute -inset-20 overflow-hidden flex items-center justify-center pointer-events-none z-0 mask-image-radial opacity-60">
               <CodeSnippet text="const app = express();" delay={0} yOffset={100} xOffset={5} duration={8} />
               <CodeSnippet text="function build() { return true; }" delay={2} yOffset={150} xOffset={60} duration={12} />
               <CodeSnippet text="<motion.div animate={{ scale: 1 }} />" delay={4} yOffset={50} xOffset={15} duration={10} />
@@ -227,17 +226,23 @@ export default function Hero() {
               <CodeSnippet text="const [data, setData] = useState([])" delay={4.5} yOffset={90} xOffset={55} duration={11} />
               <CodeSnippet text="transition={{ duration: 0.5 }}" delay={0.5} yOffset={170} xOffset={20} duration={9} />
               <CodeSnippet text="return <div className='wow'>;" delay={3.5} yOffset={110} xOffset={75} duration={10} />
+              {/* Additional snippets for wider coverage */}
+              <CodeSnippet text="display: flex; justify-content: center;" delay={1.2} yOffset={250} xOffset={8} duration={13} />
+              <CodeSnippet text="const user = await auth.getUser();" delay={5.5} yOffset={40} xOffset={65} duration={11} />
+              <CodeSnippet text="<AnimatedUpworkButton />" delay={2.8} yOffset={280} xOffset={82} duration={10} />
+              <CodeSnippet text="padding: 2rem 4rem;" delay={6.2} yOffset={20} xOffset={90} duration={14} />
+              <CodeSnippet text="useEffect(() => { init(); }, [])" delay={0.8} yOffset={260} xOffset={30} duration={9} />
             </div>
 
             <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full max-w-md flex justify-center items-start pt-4 relative z-10"
+              className="w-full max-w-md flex justify-center items-start pt-4 relative z-10 -mt-32"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}BG-LOGO.png`}
+                src="/BG-LOGO.png" 
                 alt="Agora Data Driven Logo" 
-                className="w-full max-w-[400px] h-auto object-contain mix-blend-darken drop-shadow-2xl"
+                className="w-full max-w-[450px] h-auto object-contain mix-blend-darken drop-shadow-2xl"
               />
             </motion.div>
           </motion.div>
