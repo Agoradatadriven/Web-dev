@@ -37,13 +37,10 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="block">
-          <img
-            src={`${import.meta.env.BASE_URL}agora-logo-nav.png`}
-            alt="Agora Data Driven"
-            className="h-10 md:h-12 w-auto object-contain"
-          />
+          <img src="/agora-logo-nav.png" alt="Agora Data Driven" className="h-10 md:h-12 w-auto object-contain" />
         </a>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -70,6 +67,7 @@ export default function Navbar() {
           </a>
         </nav>
 
+        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden p-2 text-zinc-600"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -78,6 +76,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Nav */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.nav
