@@ -13,7 +13,6 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="py-32 bg-[#FDFDFE] overflow-hidden relative">
-      {/* Background Decorative Elements */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [100, -100]) }}
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-zinc-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -z-10 translate-x-1/3 -translate-y-1/3"
@@ -52,7 +51,6 @@ export default function About() {
             >
               Bridging the gap between business needs and technical execution.
             </motion.h2>
-
             <div className="space-y-6 text-zinc-600 text-lg leading-relaxed font-light">
               <motion.p
                 variants={{
@@ -67,7 +65,6 @@ export default function About() {
               >
                 We don&apos;t just watch tutorials. We build real-world solutions. We have practical experience delivering business websites, e-commerce platforms, booking systems, and automated workflows using tools like WordPress, Elementor, and ActiveCampaign.
               </motion.p>
-
               <motion.p
                 variants={{
                   hidden: { opacity: 0, x: -20, filter: 'blur(5px)' },
@@ -81,7 +78,6 @@ export default function About() {
               >
                 Having mastered front-end fundamentals, we are actively expanding our expertise into full-stack web development. We are driven by the challenge of building custom, complex applications from the ground up.
               </motion.p>
-
               <motion.p
                 variants={{
                   hidden: { opacity: 0, x: -20, filter: 'blur(5px)' },
@@ -125,8 +121,6 @@ export default function About() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#FDFDFE]/40 to-transparent pointer-events-none"></div>
             </div>
-
-            {/* Decorative element */}
             <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-zinc-100 rounded-full -z-10 border border-zinc-200"></div>
           </motion.div>
         </div>
