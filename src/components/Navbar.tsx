@@ -44,7 +44,6 @@ export default function Navbar() {
           />
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -71,7 +70,6 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="md:hidden p-2 text-zinc-600"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -80,7 +78,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Nav */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.nav
