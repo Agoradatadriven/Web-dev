@@ -3,6 +3,11 @@ import { motion, useScroll, useTransform } from 'motion/react';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import AnimatedUpworkButton from './AnimatedUpworkButton';
 
+// 1. ADD THESE THREE IMPORT LINES HERE:
+import rhevVideo from '../assets/RHEV.mp4';
+import hrmvVideo from '../assets/HRMV.mp4';
+import sswvVideo from '../assets/SSWV.mp4'; // Note: If you renamed this to SSW.mp4 earlier, change this import to match!
+
 const ProjectCard: React.FC<{ project: any, index: number }> = ({ project, index }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -143,7 +148,8 @@ export default function Projects() {
         "Live website delivery"
       ],
       tools: ["GitHub", "Antigravity", "VS Code", "Wordpress", "ActiveCampaign"],
-      video: "/RHEV.mp4",
+      // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
+      video: rhevVideo, 
       link: "https://roominghouse.expert"
     },
     {
@@ -158,7 +164,8 @@ export default function Projects() {
         "Launch support"
       ],
       tools: ["Antigravity", "GitHub", "Wordpress", "VS Code"],
-      video: "/HRMV.mp4",
+      // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
+      video: hrmvVideo,
       link: "https://hydratemedbar.com"
     },
     {
@@ -172,7 +179,8 @@ export default function Projects() {
         "User flow from service browsing to booking"
       ],
       tools: ["Antigravity", "GitHub", "VS Code", "Booking System Integration", "Wordpress"],
-      video: "/SSWV.mp4",
+      // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
+      video: sswvVideo,
       link: "https://sabbathspa.com"
     }
   ];
