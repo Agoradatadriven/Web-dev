@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView, useScroll } from 'motion/react';
 import { ArrowRight, Mail } from 'lucide-react';
 
+// 1. ADD THIS IMPORT LINE HERE:
+import bgLogo from '../assets/BG-LOGO.png';
+
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { margin: "0px" });
@@ -239,8 +242,9 @@ export default function Hero() {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="w-full max-w-md flex justify-center items-start pt-4 relative z-10 -mt-32"
             >
+              {/* 2. CHANGE THE SRC HERE TO USE THE IMPORTED VARIABLE */}
               <img 
-                src="/BG-LOGO.png" 
+                src={bgLogo} 
                 alt="Agora Data Driven Logo" 
                 className="w-full max-w-[450px] h-auto object-contain mix-blend-darken drop-shadow-2xl"
               />
