@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+// 1. ADD THIS IMPORT LINE HERE:
+import navLogo from '../assets/agora-logo-nav.png';
+
 const UpworkIcon = ({ size = 16, className = "" }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} xmlns="http://www.w3.org/2000/svg">
     <path d="M17.48 10.16c-2.2 0-3.32 1.37-3.95 2.68l-1.8-3.86H8.97v6.23c0 1.6-1.28 2.9-2.88 2.9s-2.88-1.3-2.88-2.9v-6.23H.48v6.23c0 3.1 2.5 5.6 5.6 5.6s5.6-2.5 5.6-5.6v-2.26l1.4 3.02 2.2-1.04-1.08-2.32c1.04 1.17 2.45 1.88 4.08 1.88 3.04 0 5.52-2.48 5.52-5.52s-2.48-5.52-5.52-5.52zm0 8.52c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/>
@@ -37,7 +40,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="block">
-          <img src="/agora-logo-nav.png" alt="Agora Data Driven" className="h-10 md:h-12 w-auto object-contain" />
+          {/* 2. CHANGE THE SRC HERE TO USE THE IMPORTED VARIABLE */}
+          <img src={navLogo} alt="Agora Data Driven" className="h-10 md:h-12 w-auto object-contain" />
         </a>
 
         {/* Desktop Nav */}
