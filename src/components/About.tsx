@@ -1,6 +1,9 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
+// 1. ADD THIS IMPORT AT THE TOP
+import codingVideo from '../assets/CODINGS.mp4';
+
 export default function About() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -80,9 +83,10 @@ export default function About() {
             className="relative lg:ml-auto w-full max-w-md"
           >
             <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#FDFDFE] relative">
+              {/* 2. UPDATE THIS VIDEO TAG TO USE THE IMPORT */}
               <motion.video 
                 style={{ y, scale: 1.1 }}
-                src="/CODINGS.mp4" 
+                src={codingVideo} 
                 autoPlay
                 loop
                 muted
