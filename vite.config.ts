@@ -6,8 +6,8 @@ import {defineConfig, loadEnv} from 'vite';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    // Add the base property here, matching your GitHub repo name!
-    base: '/Web-dev/',
+    // 1. THIS IS THE ONLY CHANGE: Set base to '/' for custom domains
+    base: '/',
     
     plugins: [react(), tailwindcss()],
     define: {
