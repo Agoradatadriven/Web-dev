@@ -147,7 +147,7 @@ export default function Projects() {
         "Newsletter signup form to ActiveCampaign",
         "Live website delivery"
       ],
-      tools: ["GitHub", "Antigravity", "VS Code", "Wordpress", "ActiveCampaign"],
+      tools: ["GitHub", "VS Code", "Wordpress", "ActiveCampaign"],
       // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
       video: rhevVideo, 
       link: "https://roominghouse.expert"
@@ -163,7 +163,7 @@ export default function Projects() {
         "Conversion-focused business website setup",
         "Launch support"
       ],
-      tools: ["Antigravity", "GitHub", "Wordpress", "VS Code"],
+      tools: ["GitHub", "Wordpress", "VS Code"],
       // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
       video: hrmvVideo,
       link: "https://hydratemedbar.com"
@@ -178,7 +178,7 @@ export default function Projects() {
         "Booking system setup",
         "User flow from service browsing to booking"
       ],
-      tools: ["Antigravity", "GitHub", "VS Code", "Booking System Integration", "Wordpress"],
+      tools: ["GitHub", "VS Code", "Booking System Integration", "Wordpress"],
       // 2. CHANGE THIS TO USE THE IMPORTED VARIABLE
       video: sswvVideo,
       link: "https://sabbathspa.com"
